@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, Moon, Sun, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Moon, Sun, ExternalLink, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -30,14 +30,14 @@ const Portfolio = () => {
     frontend: [
       { name: 'HTML', level: 90 },
       { name: 'CSS', level: 85 },
-      { name: 'JavaScript', level: 80 },
+      { name: 'JavaScript', level: 70 },
       { name: 'React', level: 75 },
-      { name: 'Tailwind CSS', level: 85 },
-      { name: 'Bootstrap', level: 80 }
+      { name: 'Tailwind CSS', level: 75 },
+      { name: 'Bootstrap', level: 70 }
     ],
     backend: [
-      { name: 'PHP (Symfony)', level: 85 },
-      { name: 'C# (.NET)', level: 80 }
+      { name: 'PHP (Symfony)', level: 80 },
+      { name: 'C# (.NET)', level: 75 }
     ],
     databases: [
       { name: 'MySQL', level: 85 },
@@ -45,7 +45,7 @@ const Portfolio = () => {
     ],
     tools: [
       { name: 'Git/GitHub', level: 90 },
-      { name: 'Docker', level: 70 },
+      { name: 'Docker', level: 75 },
       { name: 'Linux', level: 70 },
       { name: 'Jira', level: 80 }
     ]
@@ -55,7 +55,7 @@ const Portfolio = () => {
     {
       title: 'EHEI ChatHub',
       subtitle: 'Academic Communication Platform',
-      type: 'Academic Capstone Project (2024–2025)',
+      type: 'Academic Project (2024–2025)',
       description: 'EHEI ChatHub is a full-stack web application designed to centralize internal communication between students and teachers, improving communication efficiency and reducing response time within the academic environment.',
       features: [
         'User authentication and role management',
@@ -68,7 +68,7 @@ const Portfolio = () => {
         'Tailwind CSS responsive UI'
       ],
       technologies: ['HTML', 'CSS', 'Tailwind CSS', 'JavaScript', 'PHP', 'MySQL', 'AJAX'],
-      github: null,
+      github: 'https://github.com/Loqmanmk/chatapp.git',
       images: [
         'images/chat-app1.png',
         'images/chat-app2.png',
@@ -183,13 +183,24 @@ const Portfolio = () => {
                 >
                   View work
                 </a>
+                <a 
+                  href="/cv/Yassine_Amrani_CV.pdf"
+                  download
+                  className={`px-8 py-3 border ${darkMode ? 'border-emerald-500 hover:bg-emerald-500/10 text-emerald-400' : 'border-emerald-600 hover:bg-emerald-600/10 text-emerald-700'} transition-colors rounded-full flex items-center gap-2`}
+                >
+                  <Download size={18} />
+                  Download CV
+                </a>
               </div>
             </div>
             <div className="relative">
               <div className={`absolute inset-0 blur-3xl opacity-50 ${darkMode ? 'bg-gradient-to-br from-emerald-500/20 to-blue-500/20' : 'bg-gradient-to-br from-emerald-300/30 to-blue-300/30'}`}></div>
               <div className={`relative aspect-square rounded-3xl overflow-hidden ${darkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-stone-200 border-stone-300'} border`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-emerald-500">
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-emerald-500 shadow-xl
+                transition-transform duration-300 ease-out
+                md:hover:scale-105 md:hover:shadow-emerald-500/40">
+
                     <img
                       src="/images/profile-1.jpg"
                       alt="Yassine Amrani"
@@ -560,6 +571,20 @@ const Portfolio = () => {
                 <div>
                   <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-stone-500'}`}>LinkedIn</p>
                   <p className="text-lg">yassine---amrani</p>
+                </div>
+              </a>
+
+              <a 
+                href="/cv/Yassine_Amrani_CV.pdf"
+                download
+                className={`flex items-center gap-4 p-6 rounded-2xl border transition-all group ${darkMode ? 'bg-zinc-900 border-zinc-800 hover:border-emerald-500' : 'bg-white border-stone-300 hover:border-emerald-600'}`}
+              >
+                <div className={`p-3 rounded-full transition-colors ${darkMode ? 'bg-zinc-800 group-hover:bg-emerald-500' : 'bg-stone-200 group-hover:bg-emerald-600'}`}>
+                  <Download size={24} className="group-hover:text-white transition-colors" />
+                </div>
+                <div>
+                  <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-stone-500'}`}>Download CV</p>
+                  <p className="text-lg">Resume / Curriculum Vitae</p>
                 </div>
               </a>
             </div>
