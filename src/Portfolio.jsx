@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, Moon, Sun, ExternalLink, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Moon, Sun, ExternalLink, ChevronLeft, ChevronRight, Download, Eye } from 'lucide-react';
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -184,13 +184,19 @@ const Portfolio = () => {
                   View work
                 </a>
                 <a 
-                  href="/cv/Yassine_Amrani_CV.pdf"
-                  download
-                  className={`px-8 py-3 border ${darkMode ? 'border-emerald-500 hover:bg-emerald-500/10 text-emerald-400' : 'border-emerald-600 hover:bg-emerald-600/10 text-emerald-700'} transition-colors rounded-full flex items-center gap-2`}
-                >
-                  <Download size={18} />
-                  Download CV
-                </a>
+                    href="/cv/Yassine_Amrani_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-8 py-3 border ${
+                      darkMode
+                        ? 'border-emerald-500 hover:bg-emerald-500/10 text-emerald-400'
+                        : 'border-emerald-600 hover:bg-emerald-600/10 text-emerald-700'
+                      } transition-colors rounded-full flex items-center gap-2`}
+                  >
+                    <Eye size={18} />
+                    View CV
+                  </a>
+
               </div>
             </div>
             <div className="relative">
@@ -200,7 +206,6 @@ const Portfolio = () => {
                   <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-emerald-500 shadow-xl
                 transition-transform duration-300 ease-out
                 md:hover:scale-105 md:hover:shadow-emerald-500/40">
-
                     <img
                       src="/images/profile-1.jpg"
                       alt="Yassine Amrani"
@@ -609,6 +614,16 @@ const Portfolio = () => {
               <Mail size={20} />
             </a>
           </div>
+              <div className={`h-6 w-px ${darkMode ? 'bg-zinc-700' : 'bg-stone-300'}`}></div>
+              
+              <a 
+                href="/cv/Yassine_Amrani_CV.pdf"
+                download
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm transition-colors ${darkMode ? 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-600/10 text-emerald-700 hover:bg-emerald-600/20 border border-emerald-600/30'}`}
+              >
+                <Download size={16} />
+                Download CV
+              </a>
         </div>
       </footer>
     </div>
