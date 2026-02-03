@@ -30,8 +30,8 @@ const Portfolio = () => {
     frontend: [
       { name: 'HTML', level: 90 },
       { name: 'CSS', level: 85 },
-      { name: 'JavaScript', level: 70 },
-      { name: 'React', level: 75 },
+      { name: 'JavaScript', level: 75 },
+      { name: 'React', level: 70 },
       { name: 'Tailwind CSS', level: 75 },
       { name: 'Bootstrap', level: 70 }
     ],
@@ -103,7 +103,7 @@ const Portfolio = () => {
     {
       title: 'Git Fundamentals',
       issuer: 'Coursera',
-      date: '2024'
+      date: 'Dec 28, 2025'
     }
   ];
 
