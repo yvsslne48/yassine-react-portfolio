@@ -26,30 +26,30 @@ const Portfolio = () => {
     return () => observer.disconnect();
   }, []);
 
-  const skills = {
-    frontend: [
-      { name: 'HTML', level: 90 },
-      { name: 'CSS', level: 85 },
-      { name: 'JavaScript', level: 75 },
-      { name: 'React', level: 70 },
-      { name: 'Tailwind CSS', level: 75 },
-      { name: 'Bootstrap', level: 70 }
-    ],
-    backend: [
-      { name: 'PHP (Symfony)', level: 80 },
-      { name: 'C# (.NET)', level: 75 }
-    ],
-    databases: [
-      { name: 'MySQL', level: 85 },
-      { name: 'PostgreSQL', level: 60 }
-    ],
-    tools: [
-      { name: 'Git/GitHub', level: 90 },
-      { name: 'Docker', level: 75 },
-      { name: 'Linux', level: 70 },
-      { name: 'Jira', level: 80 }
-    ]
-  };
+const skills = {
+  frontend: [
+    { name: 'HTML', levelText: 'Advanced', levelValue: 90 },
+    { name: 'CSS', levelText: 'Advanced', levelValue: 85 },
+    { name: 'JavaScript', levelText: 'Intermediate', levelValue: 75 },
+    { name: 'React', levelText: 'Intermediate', levelValue: 70 },
+    { name: 'Tailwind CSS', levelText: 'Intermediate', levelValue: 75 },
+    { name: 'Bootstrap', levelText: 'Intermediate', levelValue: 70 }
+  ],
+  backend: [
+    { name: 'PHP (Symfony)', levelText: 'Intermediate', levelValue: 80 },
+    { name: 'C# (.NET)', levelText: 'Intermediate', levelValue: 75 }
+  ],
+  databases: [
+    { name: 'MySQL', levelText: 'Advanced', levelValue: 85 },
+    { name: 'PostgreSQL', levelText: 'Beginner', levelValue: 60 }
+  ],
+  tools: [
+    { name: 'Git/GitHub', levelText: 'Advanced', levelValue: 90 },
+    { name: 'Docker', levelText: 'Intermediate', levelValue: 75 },
+    { name: 'Linux', levelText: 'Intermediate', levelValue: 70 },
+    { name: 'Jira', levelText: 'Intermediate', levelValue: 80 }
+  ]
+};
 
   const projects = [
     {
@@ -131,7 +131,8 @@ const Portfolio = () => {
     <div className={`min-h-screen transition-all duration-500 ${darkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-stone-50 text-stone-950'}`}>
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-xl ${darkMode ? 'bg-zinc-950/80 border-zinc-800' : 'bg-stone-50/80 border-stone-200'} border-b`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12
+ py-6 flex justify-between items-center">
           <a href="#home" className="text-2xl font-light tracking-tight hover:opacity-70 transition-opacity">
             YA
           </a>
@@ -152,7 +153,8 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-10 lg:px-12
+ pt-20">
         <div className="max-w-7xl w-full">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
@@ -222,7 +224,8 @@ const Portfolio = () => {
       {/* About Section */}
       <section 
         id="about" 
-        className={`py-32 px-6 transition-all duration-1000 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`py-32 px-6 md:px-10 lg:px-12
+ transition-all duration-1000 ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-5 gap-16">
@@ -259,7 +262,9 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section 
         id="skills" 
-        className={`py-32 px-6 ${darkMode ? 'bg-zinc-900' : 'bg-stone-100'} transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`py-32  px-6 md:px-10 lg:px-12
+
+ ${darkMode ? 'bg-zinc-900' : 'bg-stone-100'} transition-all duration-1000 ${isVisible.skills ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-5xl md:text-6xl font-light tracking-tight mb-20 ${darkMode ? 'text-zinc-400' : 'text-stone-400'}`}>
@@ -272,16 +277,34 @@ const Portfolio = () => {
               <h3 className={`text-2xl font-light mb-8 ${darkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>Frontend</h3>
               {skills.frontend.map((skill, idx) => (
                 <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center">
+                  {/* <div className="flex justify-between items-center">
                     <span className="text-lg">{skill.name}</span>
-                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>{skill.level}%</span>
-                  </div>
-                  <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
+                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>
+                      {skill.levelText}
+                      </span>
+
+                  </div> */}
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-zinc-800/40">
+  <span className="text-lg">{skill.name}</span>
+  <span
+    className={`text-sm px-3 py-1 rounded-full ${
+      skill.levelText === 'Advanced'
+        ? 'bg-emerald-500/15 text-emerald-400'
+        : skill.levelText === 'Intermediate'
+        ? 'bg-blue-500/15 text-blue-400'
+        : 'bg-orange-500/15 text-orange-400'
+    }`}
+  >
+    {skill.levelText}
+  </span>
+</div>
+
+                  {/* <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
                     <div 
                       className={`h-full rounded-full transition-all duration-1000 ${darkMode ? 'bg-emerald-500' : 'bg-emerald-600'}`}
-                      style={{ width: isVisible.skills ? `${skill.level}%` : '0%' }}
+                      style={{ width: isVisible.skills ? `${skill.levelValue}%` : '0%' }}
                     ></div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -291,16 +314,34 @@ const Portfolio = () => {
               <h3 className={`text-2xl font-light mb-8 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Backend</h3>
               {skills.backend.map((skill, idx) => (
                 <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center">
+                  {/* <div className="flex justify-between items-center">
                     <span className="text-lg">{skill.name}</span>
-                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>{skill.level}%</span>
-                  </div>
-                  <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
+                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>
+                      {skill.levelText}
+                    </span>
+
+                  </div> */}
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-zinc-800/40">
+  <span className="text-lg">{skill.name}</span>
+  <span
+    className={`text-sm px-3 py-1 rounded-full ${
+      skill.levelText === 'Advanced'
+        ? 'bg-emerald-500/15 text-emerald-400'
+        : skill.levelText === 'Intermediate'
+        ? 'bg-blue-500/15 text-blue-400'
+        : 'bg-orange-500/15 text-orange-400'
+    }`}
+  >
+    {skill.levelText}
+  </span>
+</div>
+
+                  {/* <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
                     <div 
                       className={`h-full rounded-full transition-all duration-1000 ${darkMode ? 'bg-blue-500' : 'bg-blue-600'}`}
-                      style={{ width: isVisible.skills ? `${skill.level}%` : '0%' }}
+                      style={{ width: isVisible.skills ? `${skill.levelValue}%` : '0%' }}
                     ></div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -310,16 +351,34 @@ const Portfolio = () => {
               <h3 className={`text-2xl font-light mb-8 ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>Databases</h3>
               {skills.databases.map((skill, idx) => (
                 <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center">
+                  {/* <div className="flex justify-between items-center">
                     <span className="text-lg">{skill.name}</span>
-                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>{skill.level}%</span>
-                  </div>
-                  <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
+                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>
+                      {skill.levelText}
+                    </span>
+
+                  </div> */}
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-zinc-800/40">
+  <span className="text-lg">{skill.name}</span>
+  <span
+    className={`text-sm px-3 py-1 rounded-full ${
+      skill.levelText === 'Advanced'
+        ? 'bg-emerald-500/15 text-emerald-400'
+        : skill.levelText === 'Intermediate'
+        ? 'bg-blue-500/15 text-blue-400'
+        : 'bg-orange-500/15 text-orange-400'
+    }`}
+  >
+    {skill.levelText}
+  </span>
+</div>
+
+                  {/* <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
                     <div 
                       className={`h-full rounded-full transition-all duration-1000 ${darkMode ? 'bg-purple-500' : 'bg-purple-600'}`}
-                      style={{ width: isVisible.skills ? `${skill.level}%` : '0%' }}
+                      style={{ width: isVisible.skills ? `${skill.levelValue}%` : '0%' }}
                     ></div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -329,16 +388,34 @@ const Portfolio = () => {
               <h3 className={`text-2xl font-light mb-8 ${darkMode ? 'text-orange-400' : 'text-orange-600'}`}>Tools & DevOps</h3>
               {skills.tools.map((skill, idx) => (
                 <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center">
+                  {/* <div className="flex justify-between items-center">
                     <span className="text-lg">{skill.name}</span>
-                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>{skill.level}%</span>
-                  </div>
-                  <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
+                    <span className={darkMode ? 'text-zinc-500' : 'text-stone-500'}>
+                      {skill.levelText}
+                    </span>
+
+                  </div> */}
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-zinc-800/40">
+  <span className="text-lg">{skill.name}</span>
+  <span
+    className={`text-sm px-3 py-1 rounded-full ${
+      skill.levelText === 'Advanced'
+        ? 'bg-emerald-500/15 text-emerald-400'
+        : skill.levelText === 'Intermediate'
+        ? 'bg-blue-500/15 text-blue-400'
+        : 'bg-orange-500/15 text-orange-400'
+    }`}
+  >
+    {skill.levelText}
+  </span>
+</div>
+
+                  {/* <div className={`h-1 rounded-full overflow-hidden ${darkMode ? 'bg-zinc-800' : 'bg-stone-300'}`}>
                     <div 
                       className={`h-full rounded-full transition-all duration-1000 ${darkMode ? 'bg-orange-500' : 'bg-orange-600'}`}
-                      style={{ width: isVisible.skills ? `${skill.level}%` : '0%' }}
+                      style={{ width: isVisible.skills ? `${skill.levelValue}%` : '0%' }}
                     ></div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -349,7 +426,8 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section 
         id="projects" 
-        className={`py-32 px-6 transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`py-32 px-6 md:px-10 lg:px-12
+ transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-20">
@@ -483,7 +561,8 @@ const Portfolio = () => {
       {/* Certifications Section */}
       <section 
         id="certifications" 
-        className={`py-32 px-6 ${darkMode ? 'bg-zinc-900' : 'bg-stone-100'} transition-all duration-1000 ${isVisible.certifications ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`py-32 px-6 md:px-10 lg:px-12
+ ${darkMode ? 'bg-zinc-900' : 'bg-stone-100'} transition-all duration-1000 ${isVisible.certifications ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-5xl md:text-6xl font-light tracking-tight mb-20 ${darkMode ? 'text-zinc-400' : 'text-stone-400'}`}>
@@ -509,7 +588,8 @@ const Portfolio = () => {
       {/* Contact Section */}
       <section 
         id="contact" 
-        className={`py-32 px-6 transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        className={`py-32 px-6 md:px-10 lg:px-12
+ transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -598,7 +678,8 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className={`py-12 px-6 border-t ${darkMode ? 'border-zinc-800' : 'border-stone-300'}`}>
+      <footer className={`py-12 px-6 md:px-10 lg:px-12
+ border-t ${darkMode ? 'border-zinc-800' : 'border-stone-300'}`}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-stone-500'}`}>
             © 2026 Yassine Amrani. All rights reserved.
