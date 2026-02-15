@@ -896,27 +896,24 @@ const Portfolio = () => {
                   <p className="text-lg">Resume / Curriculum Vitae</p>
                 </div>
               </a> */}
-
+              
               <a
                 href="https://wa.me/212762762846?text=Hello%20Yassine%2C%20I%20saw%20your%20portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300"
+                className={`flex items-center gap-4 p-6 rounded-2xl border transition-all group ${darkMode ? 'bg-zinc-900 border-zinc-800 hover:border-emerald-500' : 'bg-white border-stone-300 hover:border-emerald-600'}`}
+
               >
                 {/* Icon */}
-                <div className="p-4 rounded-full bg-white/10 transition-all duration-300 group-hover:bg-green-500/20 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] group-hover:animate-pulse">
-                  <MessageCircle className="w-6 h-6 text-gray-400 transition-all duration-300 group-hover:text-green-400 group-hover:scale-110" />
+                <div className={`p-3 rounded-full transition-colors ${darkMode ? 'bg-zinc-800 group-hover:bg-emerald-500' : 'bg-stone-200 group-hover:bg-emerald-600'}`}>
+                  <MessageCircle size={24} className="group-hover:text-white transition-colors" />
                 </div>
-
                 {/* Text */}
                 <div>
-                  <p className="text-sm text-gray-400">WhatsApp</p>
-                  <p className="text-lg font-medium text-white group-hover:text-green-400 transition">
-                    Contact me on WhatsApp
-                  </p>
+                  <p className={`text-sm ${darkMode ? 'text-zinc-500' : 'text-stone-500'}`}>WhatsApp</p>
+                  <p className="text-lg">Contact me on WhatsApp</p>
                 </div>
               </a>
-
             </div>
           </div>
         </div>
