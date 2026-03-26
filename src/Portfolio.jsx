@@ -274,7 +274,7 @@ const Portfolio = () => {
                   View work
                 </a>
                 <a
-                  href="/cv/Yassine_Amrani_CV.pdf"
+                  href="/cv/Yassine-AMRANI_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`px-8 py-3 border ${darkMode
@@ -943,7 +943,7 @@ const Portfolio = () => {
           <div className={`h-6 w-px ${darkMode ? 'bg-zinc-700' : 'bg-stone-300'}`}></div>
 
           <a
-            href="/cv/Yassine_Amrani_CV.pdf"
+            href="/cv/Yassine-AMRANI_CV.pdf"
             download
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm transition-colors ${darkMode ? 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30' : 'bg-emerald-600/10 text-emerald-700 hover:bg-emerald-600/20 border border-emerald-600/30'}`}
           >
