@@ -101,10 +101,33 @@ const Portfolio = () => {
       technologies: ['Java', 'Android', 'TCP/IP', 'Socket Programming'],
       github: 'https://github.com/yvsslne48/SOCKET_ANDROID',
       images: [
-        '/images/desktop-screenshot.png',
-        '/images/mobile-screenshot.jpg',
-        //'/images/messaging-screenshot-mobile.png'
-        '/images/messaging-screenshot-desk.png'
+        'images/desktop-screenshot.png',
+        'images/mobile-screenshot.jpg',
+        // '/images/messaging-screenshot-mobile.png',
+        'images/messaging-screenshot-desk.png'
+      ]
+    },
+    {
+      title: 'Elite Birds Store',
+      subtitle: 'Bird Management website',
+      type: 'Personal Project',
+      description: 'Elite Birds is a web application focused on managing and presenting bird-related data in a structured and user-friendly way. The project demonstrates my ability to design clean interfaces and handle dynamic data presentation within a full-stack environment.',
+      features: [
+        'Bird listing and categorization',  
+        'Structured data display for each bird',
+        'Interactive UI for browsing content',
+        'Clean and responsive interface',
+        'Data-driven architecture'
+      ],
+      technologies: ['HTML', 'CSS', 'Tailwind CSS', 'JavaScript'],
+      live: 'https://elite-birds.vercel.app',
+      github: null,
+      images: [
+        'images/first.png',
+        'images/home-pc.png',
+        'images/boutique.png',
+        'images/contact.png',
+        // 'images/mobileB.png'
       ]
     }
   ];
@@ -192,7 +215,7 @@ const Portfolio = () => {
             email: formData.email,
             subject: formData.subject,
             message: formData.message,
-            to_email: 'yassineamrani.dev@gmail.com' // Your email
+            to_email: 'yassineamrani.dev@gmail.com'
           }
         })
       });
@@ -258,7 +281,7 @@ const Portfolio = () => {
               </div>
               <div className={`h-px w-32 ${darkMode ? 'bg-zinc-700' : 'bg-stone-300'}`}></div>
               <p className={`text-lg leading-relaxed max-w-xl ${darkMode ? 'text-zinc-300' : 'text-stone-700'}`}>
-                Specializing in backend development with Symfony and .NET, building scalable and secure applications using modern architectures.
+                Specializing in backend development with Symfony, building scalable and secure applications using modern architectures.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <a
@@ -623,8 +646,18 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              {currentProject.github && (
-                <a
+              {currentProject.live ? (
+                <a 
+                  href={currentProject.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors text-white ${darkMode ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-emerald-600 hover:bg-emerald-700'}`}
+                >
+                  <ExternalLink size={18} />
+                  Live Demo
+                </a>
+              ) : currentProject.github && (
+                <a 
                   href={currentProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -632,7 +665,6 @@ const Portfolio = () => {
                 >
                   <Github size={18} />
                   View on GitHub
-                  <ExternalLink size={16} />
                 </a>
               )}
             </div>
